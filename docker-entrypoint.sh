@@ -42,8 +42,6 @@ if [ -n "$ADMIN_PASSWORD" ] ; then
   export ADMIN_PASSWORD
   envsubst '${ADMIN_PASSWORD}' < "$FUSEKI_BASE/shiro.ini" > "$FUSEKI_BASE/shiro.ini.$$" && \
     mv "$FUSEKI_BASE/shiro.ini.$$" "$FUSEKI_BASE/shiro.ini"
-  unset ADMIN_PASSWORD # Don't keep it in memory
-  export ADMIN_PASSWORD
 fi
 
 # fork 
@@ -62,7 +60,7 @@ while [[ $(curl -I http://localhost:3030 2>/dev/null | head -n 1 | cut -d$' ' -f
 done
 
 # Convert env to datasets
-printenv | egrep "^FUSEKI_DATASET_" | while read env_var
+printenv | grep -E "^FUSEKI_DATASET_" | while read env_var
 do
     dataset=$(echo $env_var | egrep -o "=.*$" | sed 's/^=//g')
     curl -s 'http://localhost:3030/$/datasets'\
@@ -70,6 +68,8 @@ do
          -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8'\
          --data "dbName=${dataset}&dbType=${TDB_VERSION}"
 done
+
+unset ADMIN_PASSWORD # Don't keep it in memory
 
 # rejoin our exec
 wait
