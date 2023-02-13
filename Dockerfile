@@ -13,7 +13,7 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-# Forked from https://github.com/stain/jena-docker and updated to Fuseki 4.4.0.
+# Forked from https://github.com/stain/jena-docker and updated to Fuseki 4.7.0.
 # Based on new corretto images due to openJDK images deprecation
 
 
@@ -31,8 +31,8 @@ RUN set -eux; \
 
 # Update below according to https://jena.apache.org/download/ 
 # and checksum for apache-jena-fuseki-4.4.0.tar.gz.sha512
-ENV FUSEKI_SHA512 21850b9d106d40962cb8358cf5731509ed9f38be7f47a0fc7e2fa22247d89faf7b4ef3ecb58cac590b7592b3b8340b80214ab7ca67b9d1231acb68df62b8bd3d
-ENV FUSEKI_VERSION 4.4.0
+ENV FUSEKI_SHA512 9646343a23c2563357207f559cb7437aa91b52d02b87e70d77b746b609e93ed0ad9dce06e072f864d53422946f24aa8ee60d9c594c1f82e8f2ab226eba56e474
+ENV FUSEKI_VERSION 4.7.0
 # No need for https due to sha512 checksums below
 ENV ASF_MIRROR http://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=
 ENV ASF_ARCHIVE http://archive.apache.org/dist/

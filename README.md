@@ -12,7 +12,7 @@ web interface, backed by the
 [Apache Jena TDB](https://jena.apache.org/documentation/tdb/) RDF triple store.
 
 ## Changelog
-Update to Jena Fuseki 4.4.0 for rdf-star support
+Update to Jena Fuseki 4.7.0 for rdf-star support
 
 Switch to new base image ([eclipse-temurin](https://hub.docker.com/_/eclipse-temurin/)) due to deprecation of openjdk images 
 
